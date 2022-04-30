@@ -1,0 +1,90 @@
+.app {
+  padding: var(--padding);
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--padding) * 2);
+  width: 60vw;
+  margin: auto;
+}
+
+.header {
+  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.35);
+  padding: var(--padding) calc(var(--padding) * 2);
+  text-align: center;
+  font-size: 48px;
+  color: var(--color-text-header);
+  background: rgb(255, 167, 211);
+  border-radius: var(--padding);
+  background: linear-gradient(
+    153deg,
+    rgba(255, 167, 211, 1) 0%,
+    rgba(186, 83, 219, 1) 35%,
+    rgba(128, 207, 230, 1) 100%
+  );
+}
+
+.addButton {
+  text-shadow: 3px 1px 6px rgba(0, 0, 0, 0.61);
+  font-size: large;
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: var(--padding);
+  background: linear-gradient(
+    153deg,
+    rgba(255, 167, 211, 1) 0%,
+    rgba(186, 83, 219, 1) 35%,
+    rgba(128, 207, 230, 1) 100%
+  );
+}
+
+.storageButton {
+  text-shadow: 3px 1px 6px rgba(0, 0, 0, 0.61);
+  font-size: large;
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: var(--padding);
+  background: rgb(239, 252, 121);
+  background: linear-gradient(
+    153deg,
+    rgba(239, 252, 121, 1) 0%,
+    rgba(74, 193, 38, 1) 35%,
+    rgba(228, 139, 70, 1) 100%
+  );
+}
+
+.storageInput {
+  display: none;
+}
+
+.storageInputLabel {
+  text-shadow: 3px 1px 6px rgba(0, 0, 0, 0.61);
+  font-size: large;
+  color: white;
+  display: flex;
+  align-items: stretch;
+  gap: var(--padding);
+  border-radius: var(--padding);
+  padding: 8px var(--padding);
+  background: linear-gradient(
+    153deg,
+    rgba(239, 252, 121, 1) 0%,
+    rgba(74, 193, 38, 1) 35%,
+    rgba(228, 139, 70, 1) 100%
+  );
+}
+
+.storageButtonContainer {
+  display: flex;
+  gap: var(--padding);
+  width: 100%;
+}
+
+.iconTextContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: var(--padding);
+  padding: 3px var(--padding);
+}

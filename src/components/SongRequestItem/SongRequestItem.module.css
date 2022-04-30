@@ -1,0 +1,76 @@
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: var(--padding);
+  margin-right: var(--padding);
+}
+
+.moveButton {
+  text-shadow: 3px 1px 6px rgba(0, 0, 0, 0.61);
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: var(--padding);
+  background: linear-gradient(
+    153deg,
+    rgba(255, 167, 211, 1) 0%,
+    rgba(186, 83, 219, 1) 35%,
+    rgba(128, 207, 230, 1) 100%
+  );
+}
+
+.actionButton {
+  text-shadow: 3px 1px 6px rgba(0, 0, 0, 0.61);
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: var(--padding);
+  background: rgb(239, 252, 121);
+  background: linear-gradient(
+    153deg,
+    rgba(239, 252, 121, 1) 0%,
+    rgba(74, 193, 38, 1) 35%,
+    rgba(228, 139, 70, 1) 100%
+  );
+}
+
+.deleteButton {
+  text-shadow: 3px 1px 6px rgba(0, 0, 0, 0.61);
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: var(--padding);
+  background: rgb(250, 0, 0);
+  background: linear-gradient(
+    153deg,
+    rgba(250, 0, 0, 1) 0%,
+    rgba(204, 25, 131, 1) 35%,
+    rgba(158, 22, 22, 1) 100%
+  );
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.input {
+  background-color: transparent;
+  color: var(--color-text-input);
+  font-size: large;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid;
+  margin-bottom: 5px;
+  padding-bottom: var(--padding);
+}
+
+.viewed {
+  opacity: 0.4;
+}

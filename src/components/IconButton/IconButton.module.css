@@ -1,0 +1,8 @@
+.disabled {
+  opacity: 0.4;
+}
+
+.button:active {
+  position: relative;
+  top: 3px;
+}
