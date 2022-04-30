@@ -7,6 +7,7 @@ import { FileExport } from "tabler-icons-react";
 import { FileImport } from "tabler-icons-react";
 import moment from "moment";
 import saveAs from "file-saver";
+import backgroundImage from "./assets/background.jpeg";
 
 function App() {
   const [requests, setRequests] = useState<SongRequest[]>([]);
@@ -18,6 +19,10 @@ function App() {
       setRequests(newRequests);
     }
   };
+
+  const viewedCount = requests.filter((request) => {
+    return request.viewed;
+  }).length;
 
   const onAddRequest = () => {
     const newRequests: SongRequest[] = [
@@ -71,36 +76,40 @@ function App() {
     </div>
   );
 
-  return (
-    <div className={styles.app}>
-      <h1 className={styles.header}>Wave's Magic Stream Organizer</h1>
+  const backgroundStyle = {
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundSize: "cover",
+  };
 
-      <button onClick={onAddRequest} className={styles.addButton}>
-        Add Request
-      </button>
-      {requestItems}
-      {requests.length > 0 && (
+  return (
+    <div id={"appbg"} style={backgroundStyle}>
+      <div className={styles.app}>
+        <h1 className={styles.header}>Wave's Magic Stream Organizer</h1>
+        <p className={styles.viewCount}>
+          Viewed: {viewedCount} of {requests.length}
+        </p>
+        <div className={styles.itemcontainer}>{requestItems}</div>
         <button onClick={onAddRequest} className={styles.addButton}>
           Add Request
         </button>
-      )}
-      <div className={styles.storageButtonContainer}>
-        <IconButton
-          onClick={handleSave}
-          disabled={false}
-          icon={iconText}
-          buttonClassName={styles.storageButton}
-        ></IconButton>
-        <div>
-          <label htmlFor={"loadFile"} className={styles.storageInputLabel}>
-            <FileImport /> Load Requests
-          </label>
-          <input
-            id={"loadFile"}
-            className={styles.storageInput}
-            type={"file"}
-            onChange={handleLoad}
-          />
+        <div className={styles.storageButtonContainer}>
+          <IconButton
+            onClick={handleSave}
+            disabled={false}
+            icon={iconText}
+            buttonClassName={styles.storageButton}
+          ></IconButton>
+          <div>
+            <label htmlFor={"loadFile"} className={styles.storageInputLabel}>
+              <FileImport /> Load Requests
+            </label>
+            <input
+              id={"loadFile"}
+              className={styles.storageInput}
+              type={"file"}
+              onChange={handleLoad}
+            />
+          </div>
         </div>
       </div>
     </div>

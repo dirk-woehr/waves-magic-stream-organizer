@@ -76,7 +76,9 @@ const SongRequestItem: React.FC<SongRequestItemProps> = (props) => {
     onUpdateRequests(requests);
   };
 
-  const handleCommentChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleCommentChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
     const requests = [...songRequests];
     requests[index] = {
       ...requests[index],
@@ -108,6 +110,8 @@ const SongRequestItem: React.FC<SongRequestItemProps> = (props) => {
     styles.inputContainer,
     songRequest.viewed && styles.viewed
   );
+
+  const requestedByInput = classnames(styles.input, styles.requestedBy);
 
   return (
     <div className={styles.item}>
@@ -157,29 +161,32 @@ const SongRequestItem: React.FC<SongRequestItemProps> = (props) => {
       </div>
       <div className={inputContaierClass}>
         <input
-          className={styles.input}
-          type={"text"}
-          onChange={handleLinkChange}
-          placeholder={"Link"}
-          value={songRequest.link}
-          disabled={songRequest.viewed}
-        ></input>
-        <input
-          className={styles.input}
+          className={requestedByInput}
           type={"text"}
           onChange={handleRequestedByChange}
           placeholder={"Requested by"}
           value={songRequest.requestedBy}
           disabled={songRequest.viewed}
         ></input>
-        <input
-          className={styles.input}
-          type={"text"}
-          onChange={handleCommentChange}
-          placeholder={"Comment"}
-          value={songRequest.comment}
-          disabled={songRequest.viewed}
-        ></input>
+        {!songRequest.viewed && (
+          <input
+            className={styles.input}
+            type={"text"}
+            onChange={handleLinkChange}
+            placeholder={"Link"}
+            value={songRequest.link}
+            disabled={songRequest.viewed}
+          ></input>
+        )}
+        {!songRequest.viewed && (
+          <textarea
+            className={styles.input}
+            onChange={handleCommentChange}
+            placeholder={"Comment"}
+            value={songRequest.comment}
+            disabled={songRequest.viewed}
+          ></textarea>
+        )}
       </div>
     </div>
   );

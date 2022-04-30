@@ -1,10 +1,20 @@
 .app {
-  padding: var(--padding);
+  padding: calc(var(--padding) * 2) calc(var(--padding) * 8);
   display: flex;
   flex-direction: column;
   gap: calc(var(--padding) * 2);
   width: 60vw;
   margin: auto;
+  height: 100vh;
+  background-color: rgba(26, 12, 26, 0.726);
+  box-sizing: border-box;
+}
+
+.itemcontainer {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--padding) * 2);
+  overflow: auto;
 }
 
 .header {
@@ -12,6 +22,7 @@
   padding: var(--padding) calc(var(--padding) * 2);
   text-align: center;
   font-size: 48px;
+  font-family: "Source Sans Pro", sans-serif;
   color: var(--color-text-header);
   background: rgb(255, 167, 211);
   border-radius: var(--padding);
@@ -21,6 +32,15 @@
     rgba(186, 83, 219, 1) 35%,
     rgba(128, 207, 230, 1) 100%
   );
+}
+
+.viewCount {
+  font-family: "Source Sans Pro", sans-serif;
+  text-align: center;
+  color: var(--color-text-header);
+  padding: 0;
+  margin: 0;
+  font-size: 24px;
 }
 
 .addButton {
@@ -36,6 +56,12 @@
     rgba(186, 83, 219, 1) 35%,
     rgba(128, 207, 230, 1) 100%
   );
+}
+
+.addButton:active,
+.storageInputLabel:active {
+  position: relative;
+  top: 3px;
 }
 
 .storageButton {
