@@ -5,6 +5,7 @@ import { SongRequestItem } from "./components/SongRequestItem";
 import { IconButton } from "./components/IconButton";
 import { FileExport } from "tabler-icons-react";
 import { FileImport } from "tabler-icons-react";
+import { PlaylistAdd } from "tabler-icons-react";
 import moment from "moment";
 import saveAs from "file-saver";
 import backgroundImage from "./assets/background.jpeg";
@@ -12,11 +13,46 @@ import backgroundImage from "./assets/background.jpeg";
 function App() {
   const [requests, setRequests] = useState<SongRequest[]>([]);
 
-  const fileReader = new FileReader();
-  fileReader.onload = () => {
-    if (fileReader.result) {
-      const newRequests = JSON.parse(fileReader.result.toString());
-      setRequests(newRequests);
+  const handleAddRequestsFromFile = (
+    result: string | ArrayBuffer | null,
+    append: boolean
+  ) => {
+    if (result) {
+      const newRequests: SongRequest[] = JSON.parse(result.toString());
+      if (append) {
+        console.log("append");
+        const appendedRequests = [...requests, ...newRequests];
+        setRequests(appendedRequests);
+      } else {
+        console.log("replace");
+        setRequests(newRequests);
+      }
+    }
+  };
+
+  const fileReaderReplace = new FileReader();
+  fileReaderReplace.onload = () => {
+    console.log("file reader replace");
+    handleAddRequestsFromFile(fileReaderReplace.result, false);
+  };
+
+  const fileReaderAppend = new FileReader();
+  fileReaderAppend.onload = () => {
+    console.log("file reader append");
+    handleAddRequestsFromFile(fileReaderAppend.result, true);
+  };
+
+  const handleLoad = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = event.target.files;
+    if (files) {
+      fileReaderReplace.readAsText(files[0]);
+    }
+  };
+
+  const handleappend = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = event.target.files;
+    if (files) {
+      fileReaderAppend.readAsText(files[0]);
     }
   };
 
@@ -63,13 +99,6 @@ function App() {
     );
   };
 
-  const handleLoad = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const files = event.target.files;
-    if (files) {
-      fileReader.readAsText(files[0]);
-    }
-  };
-
   const iconText = (
     <div className={styles.iconTextContainer}>
       <FileExport /> <span>Save Requests</span>
@@ -108,6 +137,20 @@ function App() {
               className={styles.storageInput}
               type={"file"}
               onChange={handleLoad}
+            />
+          </div>
+          <div>
+            <label
+              htmlFor={"appendRequests"}
+              className={styles.storageInputLabel}
+            >
+              <PlaylistAdd /> Append Requests
+            </label>
+            <input
+              id={"appendRequests"}
+              className={styles.storageInput}
+              type={"file"}
+              onChange={handleappend}
             />
           </div>
         </div>
