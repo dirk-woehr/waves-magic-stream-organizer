@@ -105,6 +105,7 @@
   display: flex;
   gap: var(--padding);
   width: 100%;
+  justify-content: space-between;
 }
 
 .iconTextContainer {

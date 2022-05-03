@@ -9,52 +9,17 @@ import { PlaylistAdd } from "tabler-icons-react";
 import moment from "moment";
 import saveAs from "file-saver";
 import backgroundImage from "./assets/background.jpeg";
+import { useRequestImports } from "./hooks/useRequestImport";
 
 function App() {
   const [requests, setRequests] = useState<SongRequest[]>([]);
 
-  const handleAddRequestsFromFile = (
-    result: string | ArrayBuffer | null,
-    append: boolean
-  ) => {
-    if (result) {
-      const newRequests: SongRequest[] = JSON.parse(result.toString());
-      if (append) {
-        console.log("append");
-        const appendedRequests = [...requests, ...newRequests];
-        setRequests(appendedRequests);
-      } else {
-        console.log("replace");
-        setRequests(newRequests);
-      }
+  const { handleLoad, handleappend } = useRequestImports(
+    requests,
+    (songRequests: SongRequest[]) => {
+      setRequests(songRequests);
     }
-  };
-
-  const fileReaderReplace = new FileReader();
-  fileReaderReplace.onload = () => {
-    console.log("file reader replace");
-    handleAddRequestsFromFile(fileReaderReplace.result, false);
-  };
-
-  const fileReaderAppend = new FileReader();
-  fileReaderAppend.onload = () => {
-    console.log("file reader append");
-    handleAddRequestsFromFile(fileReaderAppend.result, true);
-  };
-
-  const handleLoad = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const files = event.target.files;
-    if (files) {
-      fileReaderReplace.readAsText(files[0]);
-    }
-  };
-
-  const handleappend = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const files = event.target.files;
-    if (files) {
-      fileReaderAppend.readAsText(files[0]);
-    }
-  };
+  );
 
   const viewedCount = requests.filter((request) => {
     return request.viewed;
