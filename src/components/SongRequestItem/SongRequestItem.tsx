@@ -16,10 +16,11 @@ interface SongRequestItemProps {
   songRequests: SongRequest[];
   index: number;
   onUpdateRequests: (songRequests: SongRequest[]) => void;
+  setDialogContent: (content: JSX.Element | null) => void;
 }
 
 const SongRequestItem: React.FC<SongRequestItemProps> = (props) => {
-  const { songRequests, index, onUpdateRequests } = props;
+  const { songRequests, index, onUpdateRequests, setDialogContent } = props;
   const songRequest = songRequests[index];
 
   const eyeIcon = songRequest.viewed ? <Eye /> : <EyeOff />;
@@ -111,6 +112,42 @@ const SongRequestItem: React.FC<SongRequestItemProps> = (props) => {
     songRequest.viewed && styles.viewed
   );
 
+  const hideDeleteDialog = () => {
+    setDialogContent(null);
+  };
+
+  const deleteDialog = (
+    <div className={styles.deleteDialog}>
+      <h3 className={styles.deleteDialogHeader}>Delete request?</h3>
+      <div className={styles.deleteDialogButtons}>
+        <IconButton
+          onClick={hideDeleteDialog}
+          icon={
+            <span className={styles.buttonIconText}>
+              <Trash /> <span>Cancel</span>
+            </span>
+          }
+          disabled={false}
+          buttonClassName={styles.moveButton}
+        ></IconButton>
+        <IconButton
+          onClick={handleDelete}
+          icon={
+            <span className={styles.buttonIconText}>
+              <Trash /> <span>Delete request</span>
+            </span>
+          }
+          disabled={false}
+          buttonClassName={styles.deleteButton}
+        ></IconButton>
+      </div>
+    </div>
+  );
+
+  const showDeleteDialog = () => {
+    setDialogContent(deleteDialog);
+  };
+
   const requestedByInput = classnames(styles.input, styles.requestedBy);
 
   return (
@@ -153,7 +190,7 @@ const SongRequestItem: React.FC<SongRequestItemProps> = (props) => {
           buttonClassName={styles.actionButton}
         ></IconButton>
         <IconButton
-          onClick={handleDelete}
+          onClick={showDeleteDialog}
           icon={<Trash />}
           disabled={false}
           buttonClassName={styles.deleteButton}

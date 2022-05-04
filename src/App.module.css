@@ -50,6 +50,7 @@
   border: none;
   padding: 5px;
   border-radius: var(--padding);
+  font-family: "Source Sans Pro", sans-serif;
   background: linear-gradient(
     153deg,
     rgba(255, 167, 211, 1) 0%,
@@ -67,11 +68,13 @@
 .storageButton {
   text-shadow: 3px 1px 6px rgba(0, 0, 0, 0.61);
   font-size: large;
+  font-weight: bold;
   color: white;
   border: none;
   padding: 5px;
   border-radius: var(--padding);
   background: rgb(239, 252, 121);
+  font-family: "Source Sans Pro", sans-serif;
   background: linear-gradient(
     153deg,
     rgba(239, 252, 121, 1) 0%,
@@ -114,4 +117,20 @@
   align-items: center;
   gap: var(--padding);
   padding: 3px var(--padding);
+}
+
+.modalBackground {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalContentContainer {
+  padding-bottom: 10vh;
 }

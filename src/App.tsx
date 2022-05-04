@@ -13,6 +13,9 @@ import { useRequestImports } from "./hooks/useRequestImport";
 
 function App() {
   const [requests, setRequests] = useState<SongRequest[]>([]);
+  const [dialogContent, setDialogContent] = useState<JSX.Element | null>(null);
+
+  console.log({ dialogContent });
 
   const { handleLoad, handleappend } = useRequestImports(
     requests,
@@ -48,6 +51,9 @@ function App() {
         onUpdateRequests={handleSetRequests}
         songRequests={requests}
         index={index}
+        setDialogContent={(content: JSX.Element | null) => {
+          setDialogContent(content);
+        }}
         key={"sri_" + index}
       />
     );
@@ -120,6 +126,16 @@ function App() {
           </div>
         </div>
       </div>
+      {dialogContent !== null && (
+        <div
+          className={styles.modalBackground}
+          onClick={() => {
+            setDialogContent(null);
+          }}
+        >
+          <div className={styles.modalContentContainer}>{dialogContent}</div>
+        </div>
+      )}
     </div>
   );
 }
