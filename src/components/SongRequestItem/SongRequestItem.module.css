@@ -91,6 +91,7 @@
   padding: calc(var(--padding) * 2);
   border-radius: var(--padding);
   border: 1px solid var(--color-text-input);
+  box-shadow: var(--box-shadow);
 }
 
 .deleteDialogHeader {

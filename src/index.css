@@ -3,6 +3,7 @@
   --color-text-header: white;
   --color-text-input: rgb(255, 255, 255);
   --color-input-border: rgb(190, 165, 184);
+  --box-shadow: 20px 20px 20px 0px rgba(0, 0, 0, 0.75);
 }
 
 body {
