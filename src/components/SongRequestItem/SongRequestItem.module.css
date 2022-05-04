@@ -4,7 +4,8 @@
 }
 
 .buttonContainer {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
   gap: var(--padding);
   margin-right: var(--padding);
   padding-top: 3px;

@@ -166,18 +166,6 @@ const SongRequestItem: React.FC<SongRequestItemProps> = (props) => {
           buttonClassName={styles.moveButton}
         ></IconButton>
         <IconButton
-          onClick={handleMoveDown}
-          icon={<ArrowDown />}
-          disabled={index >= songRequests.length - 1}
-          buttonClassName={styles.moveButton}
-        ></IconButton>
-        <IconButton
-          onClick={handleMoveBottom}
-          icon={<ArrowBarToDown />}
-          disabled={index >= songRequests.length - 1}
-          buttonClassName={styles.moveButton}
-        ></IconButton>
-        <IconButton
           onClick={handleToggleViewed}
           icon={eyeIcon}
           disabled={false}
@@ -188,6 +176,18 @@ const SongRequestItem: React.FC<SongRequestItemProps> = (props) => {
           icon={<ClipboardCheck />}
           disabled={false}
           buttonClassName={styles.actionButton}
+        ></IconButton>
+        <IconButton
+          onClick={handleMoveBottom}
+          icon={<ArrowBarToDown />}
+          disabled={index >= songRequests.length - 1}
+          buttonClassName={styles.moveButton}
+        ></IconButton>
+        <IconButton
+          onClick={handleMoveDown}
+          icon={<ArrowDown />}
+          disabled={index >= songRequests.length - 1}
+          buttonClassName={styles.moveButton}
         ></IconButton>
         <IconButton
           onClick={showDeleteDialog}

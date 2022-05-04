@@ -7,6 +7,7 @@
   margin: auto;
   height: 100vh;
   background-color: rgba(26, 12, 26, 0.726);
+  backdrop-filter: blur(6px);
   box-sizing: border-box;
 }
 
