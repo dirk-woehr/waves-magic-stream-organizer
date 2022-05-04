@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/waves-magic-stream-organizer/static/css/main.bcd91900.css",
-    "main.js": "/waves-magic-stream-organizer/static/js/main.604710e2.js",
+    "main.css": "/waves-magic-stream-organizer/static/css/main.281fcbfb.css",
+    "main.js": "/waves-magic-stream-organizer/static/js/main.c18707f3.js",
     "static/js/787.0eccfd8e.chunk.js": "/waves-magic-stream-organizer/static/js/787.0eccfd8e.chunk.js",
     "static/media/background.jpeg": "/waves-magic-stream-organizer/static/media/background.4908f0fd423343364ade.jpeg",
     "index.html": "/waves-magic-stream-organizer/index.html",
-    "main.bcd91900.css.map": "/waves-magic-stream-organizer/static/css/main.bcd91900.css.map",
-    "main.604710e2.js.map": "/waves-magic-stream-organizer/static/js/main.604710e2.js.map",
+    "main.281fcbfb.css.map": "/waves-magic-stream-organizer/static/css/main.281fcbfb.css.map",
+    "main.c18707f3.js.map": "/waves-magic-stream-organizer/static/js/main.c18707f3.js.map",
     "787.0eccfd8e.chunk.js.map": "/waves-magic-stream-organizer/static/js/787.0eccfd8e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bcd91900.css",
-    "static/js/main.604710e2.js"
+    "static/css/main.281fcbfb.css",
+    "static/js/main.c18707f3.js"
   ]
 }
