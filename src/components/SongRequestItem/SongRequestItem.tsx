@@ -197,15 +197,15 @@ const SongRequestItem: React.FC<SongRequestItemProps> = (props) => {
         ></IconButton>
       </div>
       <div className={inputContaierClass}>
-        <input
-          className={requestedByInput}
-          type={"text"}
-          onChange={handleRequestedByChange}
-          placeholder={"Requested by"}
-          value={songRequest.requestedBy}
-          disabled={songRequest.viewed}
-        ></input>
-        {!songRequest.viewed && (
+        <div className={styles.textFieldContainer}>
+          <input
+            className={requestedByInput}
+            type={"text"}
+            onChange={handleRequestedByChange}
+            placeholder={"Requested by"}
+            value={songRequest.requestedBy}
+            disabled={songRequest.viewed}
+          ></input>
           <input
             className={styles.input}
             type={"text"}
@@ -214,7 +214,7 @@ const SongRequestItem: React.FC<SongRequestItemProps> = (props) => {
             value={songRequest.link}
             disabled={songRequest.viewed}
           ></input>
-        )}
+        </div>
         {!songRequest.viewed && (
           <textarea
             className={styles.input}

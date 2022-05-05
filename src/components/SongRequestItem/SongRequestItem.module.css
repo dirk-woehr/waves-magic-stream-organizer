@@ -72,10 +72,16 @@
   padding: var(--padding);
   padding-bottom: var(--padding);
   border-radius: var(--padding);
+  flex: 1;
 }
 
 .input::placeholder {
   font-weight: normal;
+}
+
+.textFieldContainer {
+  display: flex;
+  gap: var(--padding);
 }
 
 .requestedBy {

@@ -16,11 +16,9 @@ export const useRequestImports = (
     if (result) {
       const newRequests: SongRequest[] = JSON.parse(result.toString());
       if (append) {
-        console.log("append");
         const appendedRequests = [...songRequests, ...newRequests];
         updateRequests(appendedRequests);
       } else {
-        console.log("replace");
         updateRequests(newRequests);
       }
     }
@@ -28,13 +26,11 @@ export const useRequestImports = (
 
   const fileReaderReplace = new FileReader();
   fileReaderReplace.onload = () => {
-    console.log("file reader replace");
     handleAddRequestsFromFile(fileReaderReplace.result, false);
   };
 
   const fileReaderAppend = new FileReader();
   fileReaderAppend.onload = () => {
-    console.log("file reader append");
     handleAddRequestsFromFile(fileReaderAppend.result, true);
   };
 
