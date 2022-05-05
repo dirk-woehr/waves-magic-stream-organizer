@@ -33,10 +33,12 @@
     rgba(186, 83, 219, 1) 35%,
     rgba(128, 207, 230, 1) 100%
   );
+  box-shadow: -5px 0 20px #f0f, 5px 0 20px #0ff;
 }
 
 .viewCount {
   font-family: "Source Sans Pro", sans-serif;
+  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.35);
   text-align: center;
   color: var(--color-text-header);
   padding: 0;

@@ -15,8 +15,6 @@ function App() {
   const [requests, setRequests] = useState<SongRequest[]>([]);
   const [dialogContent, setDialogContent] = useState<JSX.Element | null>(null);
 
-  console.log({ dialogContent });
-
   const { handleLoad, handleappend } = useRequestImports(
     requests,
     (songRequests: SongRequest[]) => {
