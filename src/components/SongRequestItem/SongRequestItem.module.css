@@ -79,6 +79,10 @@
   font-weight: normal;
 }
 
+input:focus {
+  border: 1px solid;
+}
+
 .textFieldContainer {
   display: flex;
   gap: var(--padding);

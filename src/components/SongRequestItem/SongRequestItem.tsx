@@ -9,8 +9,10 @@ import { Eye } from "tabler-icons-react";
 import { EyeOff } from "tabler-icons-react";
 import { ClipboardCheck } from "tabler-icons-react";
 import { Trash } from "tabler-icons-react";
+import { CircleOff } from "tabler-icons-react";
 import styles from "./SongRequestItem.module.css";
 import classnames from "classnames";
+import { useHotkeys } from "react-hotkeys-hook";
 
 interface SongRequestItemProps {
   songRequests: SongRequest[];
@@ -107,6 +109,11 @@ const SongRequestItem: React.FC<SongRequestItemProps> = (props) => {
     onUpdateRequests(requests);
   };
 
+  useHotkeys("enter", () => {
+    setDialogContent(null);
+    handleDelete();
+  });
+
   const inputContaierClass = classnames(
     styles.inputContainer,
     songRequest.viewed && styles.viewed
@@ -124,7 +131,7 @@ const SongRequestItem: React.FC<SongRequestItemProps> = (props) => {
           onClick={hideDeleteDialog}
           icon={
             <span className={styles.buttonIconText}>
-              <Trash /> <span>Cancel</span>
+              <CircleOff /> <span>Cancel</span>
             </span>
           }
           disabled={false}

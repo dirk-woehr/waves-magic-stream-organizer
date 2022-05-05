@@ -11,7 +11,8 @@
   box-sizing: border-box;
 }
 
-.itemcontainer {
+.itemContainer {
+  padding-top: 2px;
   display: flex;
   flex-direction: column;
   gap: calc(var(--padding) * 2);

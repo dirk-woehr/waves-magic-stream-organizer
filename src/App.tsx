@@ -10,6 +10,7 @@ import moment from "moment";
 import saveAs from "file-saver";
 import backgroundImage from "./assets/background.jpeg";
 import { useRequestImports } from "./hooks/useRequestImport";
+import { useHotkeys } from "react-hotkeys-hook";
 
 function App() {
   const [requests, setRequests] = useState<SongRequest[]>([]);
@@ -21,6 +22,8 @@ function App() {
       setRequests(songRequests);
     }
   );
+
+  useHotkeys("escape", () => setDialogContent(null));
 
   const viewedCount = requests.filter((request) => {
     return request.viewed;
@@ -80,13 +83,13 @@ function App() {
   };
 
   return (
-    <div id={"appbg"} style={backgroundStyle}>
+    <div style={backgroundStyle}>
       <div className={styles.app}>
         <h1 className={styles.header}>Wave's Magic Stream Organizer</h1>
         <p className={styles.viewCount}>
           Viewed: {viewedCount} of {requests.length}
         </p>
-        <div className={styles.itemcontainer}>{requestItems}</div>
+        <div className={styles.itemContainer}>{requestItems}</div>
         <button onClick={onAddRequest} className={styles.addButton}>
           Add Request
         </button>
