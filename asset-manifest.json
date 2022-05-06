@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/waves-magic-stream-organizer/static/css/main.65f39ab2.css",
-    "main.js": "/waves-magic-stream-organizer/static/js/main.3d8fd3c7.js",
+    "main.css": "/waves-magic-stream-organizer/static/css/main.a036d9ab.css",
+    "main.js": "/waves-magic-stream-organizer/static/js/main.d3a8ab2f.js",
     "static/js/787.0eccfd8e.chunk.js": "/waves-magic-stream-organizer/static/js/787.0eccfd8e.chunk.js",
     "static/media/background.jpeg": "/waves-magic-stream-organizer/static/media/background.4908f0fd423343364ade.jpeg",
     "index.html": "/waves-magic-stream-organizer/index.html",
-    "main.65f39ab2.css.map": "/waves-magic-stream-organizer/static/css/main.65f39ab2.css.map",
-    "main.3d8fd3c7.js.map": "/waves-magic-stream-organizer/static/js/main.3d8fd3c7.js.map",
+    "main.a036d9ab.css.map": "/waves-magic-stream-organizer/static/css/main.a036d9ab.css.map",
+    "main.d3a8ab2f.js.map": "/waves-magic-stream-organizer/static/js/main.d3a8ab2f.js.map",
     "787.0eccfd8e.chunk.js.map": "/waves-magic-stream-organizer/static/js/787.0eccfd8e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.65f39ab2.css",
-    "static/js/main.3d8fd3c7.js"
+    "static/css/main.a036d9ab.css",
+    "static/js/main.d3a8ab2f.js"
   ]
 }
