@@ -9,10 +9,9 @@ import { Eye } from "tabler-icons-react";
 import { EyeOff } from "tabler-icons-react";
 import { ClipboardCheck } from "tabler-icons-react";
 import { Trash } from "tabler-icons-react";
-import { CircleOff } from "tabler-icons-react";
 import styles from "./SongRequestItem.module.css";
 import classnames from "classnames";
-import { useHotkeys } from "react-hotkeys-hook";
+import { DeleteDialog } from "../DeleteDialog";
 
 interface SongRequestItemProps {
   songRequests: SongRequest[];
@@ -107,12 +106,8 @@ const SongRequestItem: React.FC<SongRequestItemProps> = (props) => {
     const requests = [...songRequests];
     requests.splice(index, 1);
     onUpdateRequests(requests);
-  };
-
-  useHotkeys("enter", () => {
     setDialogContent(null);
-    handleDelete();
-  });
+  };
 
   const inputContaierClass = classnames(
     styles.inputContainer,
@@ -123,36 +118,13 @@ const SongRequestItem: React.FC<SongRequestItemProps> = (props) => {
     setDialogContent(null);
   };
 
-  const deleteDialog = (
-    <div className={styles.deleteDialog}>
-      <h3 className={styles.deleteDialogHeader}>Delete request?</h3>
-      <div className={styles.deleteDialogButtons}>
-        <IconButton
-          onClick={hideDeleteDialog}
-          icon={
-            <span className={styles.buttonIconText}>
-              <CircleOff /> <span>Cancel</span>
-            </span>
-          }
-          disabled={false}
-          buttonClassName={styles.moveButton}
-        ></IconButton>
-        <IconButton
-          onClick={handleDelete}
-          icon={
-            <span className={styles.buttonIconText}>
-              <Trash /> <span>Delete request</span>
-            </span>
-          }
-          disabled={false}
-          buttonClassName={styles.deleteButton}
-        ></IconButton>
-      </div>
-    </div>
-  );
-
   const showDeleteDialog = () => {
-    setDialogContent(deleteDialog);
+    setDialogContent(
+      <DeleteDialog
+        hideDeleteDialog={hideDeleteDialog}
+        handleDelete={handleDelete}
+      />
+    );
   };
 
   const requestedByInput = classnames(styles.input, styles.requestedBy);
