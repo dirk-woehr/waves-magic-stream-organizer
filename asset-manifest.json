@@ -1,16 +1,14 @@
 {
   "files": {
     "main.css": "/waves-magic-stream-organizer/static/css/main.a036d9ab.css",
-    "main.js": "/waves-magic-stream-organizer/static/js/main.d3a8ab2f.js",
-    "static/js/787.0eccfd8e.chunk.js": "/waves-magic-stream-organizer/static/js/787.0eccfd8e.chunk.js",
+    "main.js": "/waves-magic-stream-organizer/static/js/main.e6aa2519.js",
     "static/media/background.jpeg": "/waves-magic-stream-organizer/static/media/background.4908f0fd423343364ade.jpeg",
     "index.html": "/waves-magic-stream-organizer/index.html",
     "main.a036d9ab.css.map": "/waves-magic-stream-organizer/static/css/main.a036d9ab.css.map",
-    "main.d3a8ab2f.js.map": "/waves-magic-stream-organizer/static/js/main.d3a8ab2f.js.map",
-    "787.0eccfd8e.chunk.js.map": "/waves-magic-stream-organizer/static/js/787.0eccfd8e.chunk.js.map"
+    "main.e6aa2519.js.map": "/waves-magic-stream-organizer/static/js/main.e6aa2519.js.map"
   },
   "entrypoints": [
     "static/css/main.a036d9ab.css",
-    "static/js/main.d3a8ab2f.js"
+    "static/js/main.e6aa2519.js"
   ]
 }
