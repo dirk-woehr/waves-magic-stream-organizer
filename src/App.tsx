@@ -11,6 +11,7 @@ import saveAs from "file-saver";
 import backgroundImage from "./assets/background.jpeg";
 import { useRequestImports } from "./hooks/useRequestImport";
 import { useHotkeys } from "react-hotkeys-hook";
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
   const [requests, setRequests] = useState<SongRequest[]>([]);
@@ -33,6 +34,7 @@ function App() {
     const newRequests: SongRequest[] = [
       ...requests,
       {
+        id: uuidv4(),
         link: "",
         requestedBy: "",
         comment: "",
