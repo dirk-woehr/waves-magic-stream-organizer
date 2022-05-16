@@ -11,10 +11,12 @@ import saveAs from "file-saver";
 import backgroundImage from "./assets/background.jpeg";
 import { useRequestImports } from "./hooks/useRequestImport";
 import { useHotkeys } from "react-hotkeys-hook";
+import { NewRequestDialog } from "./components/NewRequestDialog";
 import { v4 as uuidv4 } from "uuid";
 
 function App() {
   const [requests, setRequests] = useState<SongRequest[]>([]);
+  const [newRequest, setNewRequest] = useState<SongRequest | null>(null);
   const [dialogContent, setDialogContent] = useState<JSX.Element | null>(null);
 
   const { handleLoad, handleappend } = useRequestImports(
@@ -30,18 +32,25 @@ function App() {
     return request.viewed;
   }).length;
 
-  const onAddRequest = () => {
-    const newRequests: SongRequest[] = [
-      ...requests,
-      {
-        id: uuidv4(),
-        link: "",
-        requestedBy: "",
-        comment: "",
-        viewed: false,
-      },
-    ];
+  const handleAddRequest = (request: SongRequest | null) => {
+    setNewRequest(null);
+    if (request === null) return;
+    const newRequests: SongRequest[] = [...requests, request];
     setRequests(newRequests);
+  };
+
+  const handleEditNewRequest = (request: SongRequest) => {
+    setNewRequest(request);
+  };
+
+  const openNewRequestDialog = () => {
+    setNewRequest({
+      id: uuidv4(),
+      requestedBy: "",
+      link: "",
+      comment: "",
+      viewed: false,
+    });
   };
 
   const handleSetRequests = (songRequests: SongRequest[]) => {
@@ -92,7 +101,7 @@ function App() {
           Viewed: {viewedCount} of {requests.length}
         </p>
         <div className={styles.itemContainer}>{requestItems}</div>
-        <button onClick={onAddRequest} className={styles.addButton}>
+        <button onClick={openNewRequestDialog} className={styles.addButton}>
           Add Request
         </button>
         <div className={styles.storageButtonContainer}>
@@ -137,6 +146,17 @@ function App() {
           }}
         >
           <div className={styles.modalContentContainer}>{dialogContent}</div>
+        </div>
+      )}
+      {newRequest !== null && (
+        <div className={styles.modalBackground}>
+          <div className={styles.modalContentContainer}>
+            <NewRequestDialog
+              songRequest={newRequest}
+              setSongRequest={handleEditNewRequest}
+              onClose={handleAddRequest}
+            />
+          </div>
         </div>
       )}
     </div>
